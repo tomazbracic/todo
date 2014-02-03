@@ -1,0 +1,5 @@
+astina_todo:
+    resource: "@AstinaTodoBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
