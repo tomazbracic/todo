@@ -1,0 +1,48 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Todo</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Itemcode</th>
+                <td>{{ entity.itemCode }}</td>
+            </tr>
+            <tr>
+                <th>Itemname</th>
+                <td>{{ entity.itemName }}</td>
+            </tr>
+            <tr>
+                <th>Itemprice</th>
+                <td>{{ entity.itemPrice }}</td>
+            </tr>
+            <tr>
+                <th>Itemquantity</th>
+                <td>{{ entity.itemQuantity }}</td>
+            </tr>
+            <tr>
+                <th>Itemstatus</th>
+                <td>{{ entity.itemStatus }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('todo') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('todo_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}
