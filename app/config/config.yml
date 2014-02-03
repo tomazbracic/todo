@@ -14,6 +14,10 @@ framework:
     validation:      { enable_annotations: true }
     templating:
         engines: ['twig']
+        # added by Tomaz
+        #assets_base_urls:
+            #http: ["http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css"]
+            #http: ["http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"]
         #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
     trusted_hosts:   ~

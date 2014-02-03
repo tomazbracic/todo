@@ -1,49 +1,57 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
+<div class="container">
     <h1>Shopping card</h1>
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Itemcode</th>
-                <th>Itemname</th>
-                <th>Itemprice</th>
-                <th>Itemquantity</th>
-                <th>Itemstatus</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('todo_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.itemCode }}</td>
-                <td>{{ entity.itemName }}</td>
-                <td>{{ entity.itemPrice }}</td>
-                <td>{{ entity.itemQuantity }}</td>
-                <td>{{ entity.itemStatus }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('todo_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('todo_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('todo_new') }}">
+
+
+        <div class="row top-buffer">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Item Code</th>
+                        <th>Item Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Status</th>
+                        <!--<th>Actions</th>-->
+                    </tr>
+                </thead>
+                <tbody>
+                {% for entity in entities %}
+                    <tr>
+                        <td><a href="{{ path('todo_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                        <td>{{ entity.itemCode }}</td>
+                        <td>{{ entity.itemName }}</td>
+                        <td>{{ entity.itemPrice }}</td>
+                        <td>{{ entity.itemQuantity }}</td>
+                        <td>{{ entity.itemStatus }}</td>
+                        <td>
+                        <ul>
+                            <div class="span2">
+                                <a href="{{ path('todo_show', { 'id': entity.id }) }}" class="btn btn-large btn-block btn-primary">show</a>
+                            </div>
+                            <div class="span2">
+                                <a href="{{ path('todo_edit', { 'id': entity.id }) }}" class="btn btn-large btn-block btn-warning">edit</a>
+                            </div>
+                        </ul>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+      
+        <div class="row">
+        <div class="span3">
+          <a href="{{ path('todo_new') }}" class="btn btn-large btn-block btn-success">
                 Add Item to a Shopping card
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+          </a>
+        </div>
+        </div>
+      
+</div>
+{% endblock %}
