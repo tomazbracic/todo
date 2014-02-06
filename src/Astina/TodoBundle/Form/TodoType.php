@@ -15,11 +15,11 @@ class TodoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('itemCode')
-            ->add('itemName')
-            ->add('itemPrice')
-            ->add('itemQuantity')
-            ->add('itemStatus')
+            ->add('itemCode', 'text', array('required' => false))
+            ->add('itemName', 'text', array('required' => false))
+            ->add('itemPrice', 'text', array('required' => false))
+            ->add('itemQuantity', 'text', array('required' => false))
+            ->add('itemStatus', 'text', array('required' => false))
         ;
     }
     
