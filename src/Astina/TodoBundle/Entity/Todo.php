@@ -3,6 +3,7 @@
 namespace Astina\TodoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Todo
@@ -23,35 +24,44 @@ class Todo
 
     /**
      * @var integer
-     *
+     * @Assert\NotBlank(message="Please put in Item Code")
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 100,
+     *      minMessage = "Item code should be above 0",
+     *      maxMessage = "Item code should be below 100"
+     * )
      * @ORM\Column(name="item_code", type="integer")
      */
     private $itemCode;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message="Please put in Item Name")
      * @ORM\Column(name="item_name", type="string", length=255)
      */
     private $itemName;
 
     /**
      * @var integer
-     *
+     * @Assert\NotBlank(message="Please put in Item Price")
      * @ORM\Column(name="item_price", type="integer")
      */
     private $itemPrice;
 
     /**
      * @var integer
-     *
+     * @Assert\GreaterThan(
+     *     value = 0,
+     *     message = "Please orders can't be 0 or less"
+     * )
      * @ORM\Column(name="item_quantity", type="integer")
      */
     private $itemQuantity;
 
     /**
      * @var string
-     *
+     * @Assert\Choice(choices = {"available", "sold"}, message = "Choose a valid status. 'available' or 'sold'")
      * @ORM\Column(name="item_status", type="string", length=255)
      */
     private $itemStatus;
