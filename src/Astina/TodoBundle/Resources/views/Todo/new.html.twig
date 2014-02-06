@@ -5,9 +5,9 @@
     <h1>New Item to Shopping card</h1>
 
     {{ form(form) }}
-    <p>test</p>
+    
 
-    {{ form_start(form, {'class' : 'form-horizontal'} ) }}
+    {{ form_start(form) }}
     	
     	{{ form_errors(form) }}
 		
@@ -21,7 +21,7 @@
 
 	{{ form_end(form)}}
 
-        <ul class="record_actions">
+        <ul class="record_actions list-unstyled">
 		    <li>
 		        <a href="{{ path('todo') }}">
 		            Back to the list
